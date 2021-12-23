@@ -1,14 +1,27 @@
-# Given a non-empty array of integers nums, 
-# every element appears twice except for one. 
-# Find that single one.
-# You must implement a solution with a linear 
-# runtime complexity and use only constant extra 
-# pace.
+# Rotat a matrix by 90 degres
+import numpy as np
 
-def singleNumber(nums):
-  freq_vec = {}
-  for i in range(len(nums)):
-    freq_vec.setdefault(nums[i], 0)
-    freq_vec[nums[i]] += 1
-  return min(freq_vec, key=freq_vec.get)
-  
+matr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+output = [[7, 4, 1], [8, 5, 2], [9, 6, 3]]
+# Each element of the last child array becomes 
+# the first item of each of the new child arrays
+
+def rotate_matrix(arr):
+  print("Using a second matrix: \n", np.matrix(matr))
+  newArr = []
+  for i in range(len(arr)):
+    newArr.append([])
+
+  pointer = -1
+
+  print(arr)
+  for n in range(len(arr)):
+    counter = 0
+    for x in arr[pointer]:
+      newArr[counter].append(x)
+      counter += 1
+    pointer -= 1
+  print("Rotated matrix: \n", np.matrix(newArr))
+  return newArr
+
+print(rotate_matrix(matr))
