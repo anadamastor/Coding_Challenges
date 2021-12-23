@@ -11,3 +11,4 @@ def singleNumber(nums):
     freq_vec.setdefault(nums[i], 0)
     freq_vec[nums[i]] += 1
   return min(freq_vec, key=freq_vec.get)
+  heyyy
