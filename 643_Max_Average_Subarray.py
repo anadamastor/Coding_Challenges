@@ -74,4 +74,17 @@ def findMaxAverage(nums, k):
   return maximum
 
 print(findMaxAverage(nums,k))
+
 ## Sliding window ##################################
+def findMaxAverageSliding(nums, k):
+
+  window_sum  = sum(nums[:k])
+  max_avg = window_sum  / k
+
+  for i in range(len(nums) - k):
+    window_sum = window_sum  - nums[i] + nums[i+k]
+    next_avg = window_sum / k
+    max_avg = max(next_avg , max_avg)
+    
+  return max_avg
+print(findMaxAverageSliding(nums,k))
